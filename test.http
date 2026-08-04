@@ -1,0 +1,10 @@
+### GET request to example server
+GET http://localhost:8080/employees
+
+###
+POST http://localhost:8080/employees
+Content-Type: application/json
+
+{
+  "name": "Guy"
+}

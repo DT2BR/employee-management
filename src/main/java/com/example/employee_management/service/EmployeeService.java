@@ -8,6 +8,8 @@ import com.example.employee_management.entity.Employee;
 
 import com.example.employee_management.repository.EmployeeRepository;
 
+import com.example.employee_management.exception.EmployeeNotFoundException;
+
 @Service
 public class EmployeeService {
 
@@ -27,5 +29,12 @@ public class EmployeeService {
 
     public List<Employee> searchByName(String name) {
         return employeeRepository.findByNameContaining(name);
+    }
+
+    public Employee getEmployeeById(Long id) {
+
+        return employeeRepository.findById(id)
+                .orElseThrow(() ->
+                        new EmployeeNotFoundException("Khong tim thay employee"));
     }
 }

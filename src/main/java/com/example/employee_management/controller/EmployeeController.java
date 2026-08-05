@@ -26,4 +26,11 @@ public class EmployeeController {
         employeeService.addEmployee(employee);
         return ResponseEntity.ok(employee);
     }
+
+    @GetMapping("/search")
+    public List<Employee> search(
+            @RequestParam String name) {
+
+        return employeeService.searchByName(name);
+    }
 }

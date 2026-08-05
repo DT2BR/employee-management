@@ -8,3 +8,15 @@ Content-Type: application/json
 {
   "name": "Guy"
 }
+
+###
+POST http://localhost:8080/employees
+Content-Type: application/json
+
+{
+  "name": "Dude",
+  "email": "Dude@gmail.com"
+}
+
+###
+GET http://localhost:8080/employees/search?name=Guy

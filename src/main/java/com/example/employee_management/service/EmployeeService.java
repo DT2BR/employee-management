@@ -6,21 +6,26 @@ import java.util.*;
 
 import com.example.employee_management.entity.Employee;
 
+import com.example.employee_management.repository.EmployeeRepository;
+
 @Service
 public class EmployeeService {
 
-    private final List<Employee> employees = new ArrayList<>();
+    private final EmployeeRepository employeeRepository;
 
-    public EmployeeService() {
-        employees.add(new Employee("EMP-001", "Do"));
-        employees.add(new Employee("EMP-002", "Tran"));
+    public EmployeeService(EmployeeRepository employeeRepository) {
+        this.employeeRepository = employeeRepository;
     }
 
     public List<Employee> getAllEmployees() {
-        return employees;
+        return employeeRepository.findAll();
     }
 
-    public void addEmployee(Employee employee) {
-        employees.add(employee);
+    public Employee addEmployee(Employee employee) {
+        return employeeRepository.save(employee);
+    }
+
+    public List<Employee> searchByName(String name) {
+        return employeeRepository.findByNameContaining(name);
     }
 }

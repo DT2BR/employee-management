@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/employee_management_prod
+    username: root
+    password: your_prod_password
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false

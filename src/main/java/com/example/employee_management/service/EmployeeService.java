@@ -14,6 +14,8 @@ import org.slf4j.Logger;
 
 import org.slf4j.LoggerFactory;
 
+import org.springframework.cache.annotation.Cacheable;
+
 @Service
 public class EmployeeService {
 
@@ -74,5 +76,9 @@ public class EmployeeService {
     private static final Logger logger =
             LoggerFactory.getLogger(EmployeeService.class);
 
+    @Cacheable("employeeCount")
+    public long getEmployeeCount() {
+        return employeeRepository.count();
+    }
 
 }

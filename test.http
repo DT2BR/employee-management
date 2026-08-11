@@ -51,3 +51,16 @@ Content-Type: application/json
   "password": "123456",
   "role": "ADMIN"
 }
+###
+POST http://localhost:8080/login
+Content-Type: application/x-www-form-urlencoded
+
+username=admin&password=123456
+
+###
+GET http://localhost:8080/employees
+###
+POST http://localhost:8080/login
+Content-Type: application/x-www-form-urlencoded
+
+username=admin&password=wrongpassword

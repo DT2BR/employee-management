@@ -81,4 +81,12 @@ public class EmployeeService {
         return employeeRepository.count();
     }
 
+    public long countEmployees() {
+        return employeeRepository.count();
+    }
+
+    public List<Object[]> countEmployeesByDepartment() {
+        return employeeRepository.countEmployeesByDepartment();
+    }
+
 }

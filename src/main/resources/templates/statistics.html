@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Employee Statistics</title>
+</head>
+<body>
+
+<h1>Employee Statistics</h1>
+
+<h2>Total Employees</h2>
+
+<p th:text="${totalEmployees}"></p>
+
+<h2>Employees by Department</h2>
+
+<table border="1">
+    <tr>
+        <th>Department</th>
+        <th>Number of Employees</th>
+    </tr>
+
+    <tr th:each="stat : ${departmentStats}">
+        <td th:text="${stat[0]}"></td>
+        <td th:text="${stat[1]}"></td>
+    </tr>
+</table>
+
+<br>
+
+<a href="/employees/list">Back to List</a>
+
+</body>
+</html>

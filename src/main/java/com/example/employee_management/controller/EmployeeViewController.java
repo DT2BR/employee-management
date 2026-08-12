@@ -50,4 +50,20 @@ public class EmployeeViewController {
 
         return "search";
     }
+
+    @GetMapping("/statistics")
+    public String statistics(Model model) {
+
+        model.addAttribute(
+                "totalEmployees",
+                employeeService.countEmployees()
+        );
+
+        model.addAttribute(
+                "departmentStats",
+                employeeService.countEmployeesByDepartment()
+        );
+
+        return "statistics";
+    }
 }
